@@ -2,3 +2,12 @@
 
 Each pattern describes a problem which occurs over and over again in our environment, and then describes the core of the solution to that problem, in such a way that you can use this
 solution a million times over, without ever doing it the same way twice.
+
+
+
+Keyed Predictions,  is a pattern that enables the largescale distribution of batch predictions, such as for recommendation models.
+
+
+Machine learning models are algorithms that learn patterns from data. 
+
+

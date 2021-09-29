@@ -11,3 +11,59 @@ Keyed Predictions,  is a pattern that enables the largescale distribution of bat
 Machine learning models are algorithms that learn patterns from data. 
 
 
+ML engineers in industry tend to employ one of several open source frameworks designed to provide intuitive APIs for building models. The majority of our examples will use TensorFlow
+
+
+Data is at the heart of any machine learning problem. When we talk about datasets, we’re referring to the data used for training, validating, and testing a machine learning model
+
+
+Data preprocessing step can also be referred to as data transformation
+
+
+Online prediction is used when you want to get predictions on a few examples in near real time. With online prediction, the emphasis is on low latency. Batch prediction, on the other hand, refers to generating predictions on a 
+large set of data offline. Batch prediction jobs take longer than online prediction and are useful for precomputing predictions (such as in recommendation systems) and in analyzing your model’s predictions across a large sample of new data.
+
+
+the processes of collecting training data, feature engineering, training, and evaluating your model are handled separately from the production pipeline
+
+
+you may have new data being ingested continuously and need to process this data immediately before sending it to your model for training or prediction. This is known as streaming. 
+
+
+To handle streaming data, you’ll need a multistep solution for performing feature engineering, training, evaluation, and predictions. Such multistep solutions are called ML pipelines
+
+
+
+All of the products included here are serverless, allowing us to focus more on implementing machine learning design patterns instead of the infrastructure behind them
+
+
+
+BigQuery is an enterprise data warehouse designed for analyzing large datasets quickly with SQL.
+
+
+
+BigQuery ML is a tool for building models from data stored in BigQuery  With BigQuery ML, we can train, evaluate, and generate predictions on our models using SQL. It supports classification and regression models, along with
+unsupervised clustering models. It’s also possible to import previously trained TensorFlow models to BigQuery ML for prediction
+
+
+ data completeness, data inconsistencies >>>  impportant 
+ 
+ 
+ To deal with timeliness, it’s useful to record as much information as possible about a particular data point, and make sure that information is reflected when you transform your data into features for a machine learning
+
+
+ If you train a model to 98.1% accuracy, a repeated training run is not guaranteed to reach the same result. This can make it difficult to run comparisons across experiments
+
+
+
+it is important to alwalys update your train dataset while you use bitch learning
+
+
+
+
+
+
+
+
+
+

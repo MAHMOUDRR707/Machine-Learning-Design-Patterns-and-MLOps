@@ -1,0 +1,194 @@
+Notes of chatpter 8 
+
+
+Design patterns don’t exist in isolation. Many of them are closelyrelated to one another either directly or indirectly and often
+complement one another. If you find yourself using a pattern, you might benefit from thinking how you could incorporate other patterns that are related to it.
+
+
+the ways in which these patterns are related and how they can be used together when developing a full solution
+
+
+We saw when discussing Embeddings that this technique is recommended when using the Feature Cross design pattern. Hashed Features go hand in hand with the Repeatable Splitting design pattern
+since the Farm Fingerprint hashing algorithm can be used for data splitting.
+
+
+when using the Hashed Features or Embeddings design pattern, it’s common to turn to concepts within Hyperparameter Tuning to determine the optimal number of hash buckets or the right embedding dimension to us
+
+
+
+the hyperparameter tuning design is a common part of the machine learning workflow and is often used in conjunction with other patterns
+
+
+when using hyperparameter tuning, it’s important to keep in mind how we’ve set up model Checkpoints using virtual epochs and Distributed Training. Meanwhile, the Checkpoints design pattern naturally connects to Transfer Learning since earlier model checkpoints are often used during fine-tuning.
+
+
+
+ML Life Cycle Building a machine learning solution is a cyclical process that begins with a clear understanding of the business goals and ultimately leads to having a machine learning model in production that benefits that goal.
+
+
+Each of the stages is equally important in ML cycle, and failure to complete any one of these steps increases the risk in later stages of producing misleading insights or models of no value
+
+
+ML life sycle consist of four stages : 
+1- Discovery
+2- Machine learning feasbilty study
+3- Development
+4- Deployment
+
+
+
+
+1- Discovery (step 1 ) ( mixed with step  2 ):
+an ML project begins with defining the business use case
+
+This is a crucial time for business leaders and ML practitioners to align on the specifics of the problem and develop an understanding of what ML can and cannot do to achieve that goal
+
+It is important to keep sight of the business value through each stage of the life cycle. Many choices and design decisions must be made throughout the various stages, and often there is no single “right” answer
+
+
+you should care about curtomer service and opinion like model size or time ... etc
+
+
+Machine learning is not the answer to all problems, and sometimes a rule-based heuristic is hard to beat.
+
+
+the viability of a project and the potential for success all rely on the data. Thus, it is essential to have data stewards within the organization involved in these conversations early
+
+it is important to focus on the cost also 
+
+
+you should care about the quality of data  ( asking questions to help you to make sure about qality of this dataset)
+
+
+Visualization plays an important role during this step. Density plots and histograms are helpful to understand the spread of different input values
+
+
+
+Scatter plots are useful for discovering and describing bivariate relationships
+
+
+
+2 - Development (setp 3 ) ( mixed with step  2 ) :
+During the development stage, we begin by building data pipelines and engineering features
+
+
+in this set we prepare the data  about missing value or categorical feature or labeleing data or creating feature  
+
+the development stage is focused on building the ML model. During this development step, it is crucial to adhere to best practices of capturing ML workflows in a pipeline
+
+
+when you build your pipline focus on tuning parameter and hyperparameter and use regulization
+
+
+It is not uncommon to spend a long time in the model development phase, particularly when developing a custom model
+
+
+3- DEPLOYMENT (step 4 ) :
+
+the next stage is focused on productionization of the model .
+
+These are important considerations, and this final stage tends to be the largest hurdle for many businesses, as it can require strong coordination among different parts of the organization and integration
+of a variety of technical components. This difficulty is also in part due to the fact that productionization requires integrating a new process
+
+
+The next step of the deployment stage is to operationalize the model . This field of the practice is typically referred to as MLOps (ML Operations) and covers aspects related to
+automating, monitoring, testing, managing, and maintaining machine learning models in production. It is a necessary component for anycompany hoping to scale the number of machine learning–drive napplications within their organization.
+
+
+there is tool for MLops like  Kubeflow ,  Uber’s Michelangelo or Google’s TFX
+
+
+These CI/CD practices are focused on reliability, reproducibility, speed, security, and version control within code development. ML/AI workflows benefit from the same considerations,
+
+
+next step is to monitor the model and analysis its result throw time  
+
+
+For example, it is important to monitor the distribution of feature values to compare against the distributions that were used during the development step
+
+
+it is important to set up systems to monitor prediction distributions and, when possible, measure the quality of those predictions in the production environmen
+
+
+ AI Readiness. According to a white paper published by Google Cloud, a company’s maturity in incorporating AI into the business can typically be characterized into three phases: tactical, strategic, and transformational
+
+
+1- TACTICAL PHASE: MANUAL DEVELOPMENT 
+
+The tactical phase of AI Readiness is often seen in organizations just beginning to explore the potential for AI to deliver, with focus on short-term projects
+
+in this phase, there is no process to scale solutions consistently, and the ML tools used are developed on an ad hoc basis. Data is warehoused offline or in isolated data islands
+and accessed manually for data exploration and analysis. 
+
+graph on the book descipe it
+
+
+
+2- STRATEGIC PHASE: UTILIZING PIPELINES
+
+Organizations in the strategic phase have aligned AI efforts with business objectives and priorities, and ML is seen as a pivotal accelerator for the business
+As such, there is often senior executive sponsorship and dedicated budget for ML projects that are executed by skilled teams and strategic partners. There is infrastructure in
+place for these teams to easily share assets and develop ML systems that leverage both ready-to-use and custom models. There is a clear distinction between development and production environments.
+
+
+There may be several ML systems deployed and maintained in production with logging, performance monitoring, and notifications in place. The ML systems leverage a model API that is capable of
+handling real-time data streams both for inference and to collect datathat is fed into the automated ML pipeline to refresh the model for later training
+
+
+graph on the book descipe it
+
+
+
+3- TRANSFORMATIONAL PHASE: FULLY AUTOMATED PROCESSES
+
+In this phase, it is common to have product-specific AI teams embedded into the broader product teams and supported by the advanced analytics team. In this way, ML expertise is able to diffuse
+across various lines of business within the organization.
+
+
+Datasets are stored in a platform that is accessible to all teams, making it easy to discover, share, and reuse datasets and ML assets.
+
+graph on the book descipe it
+
+
+
+==============
+Predictive modeling uses historical data to find patterns and
+determine the likelihood of a certain event occurring in the future.
+Predictive models can be found across many different industry
+domains. For example, businesses might use predictive models to
+forecast revenue more accurately or anticipate future demand for
+products. In medicine, predictive models might be used to assess the
+risk of a patient developing a chronic disease or predict when a
+patient might not show up for a scheduled appointment. Other
+examples include energy forecasting, customer churn prediction,
+financial modeling, weather prediction, and predictive maintenance.
+
+
+
+Fraud and Anomaly Detection
+Many financial institutions use machine learning for fraud detection
+to keep their consumers’ accounts safe. These machine learning
+models are trained to flag transactions that appear fraudulent based
+on certain characteristics or patterns that have been learned in the
+data.
+More broadly, anomaly detection is a technique used to find abnormal
+behavior or outlier elements in a dataset. Anomalies can arise as
+spikes or dips that deviate from the normal patterns, or they can be
+longer-term abnormal trends. Anomaly detection shows up through
+many different use cases in machine learning and might even be used
+in conjunction with a separate use case. For example, consider a
+machine learning model that identifies anomalous train tracks based
+on images.
+
+
+
+
+
+
+
+
+
+
+ 
+
+

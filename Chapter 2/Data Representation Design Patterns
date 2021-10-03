@@ -1,0 +1,130 @@
+#Notes of chapter  2
+
+when we use decision tree it works as boolean values even we use numerical value , use to  compare a speciifc value like (weight > 3 kg ) 
+if we are talking about categorical  value  still using boolean values like (hospital IN France)
+
+
+The process of creating features to represent the input data is called feature engineering
+
+
+we’d prefer the machine learning model to learn how to create each node by selecting the input variable and the threshold.  Decision trees are an example of machine learning
+models that are capable of learning the data representation. Many of the patterns that we look at in this chapter will involve similarly learnable data representations
+
+
+feature extraction  be in the first of neural network to focus on the  best spots on pictures  ( pooling , convoltion ...  etc)
+
+
+feature cross is the way to create new feature by finding the relation between other features 
+
+
+Hashing used with categorical data to  make the input less than its number and indicate each categorical with number 
+
+
+
+Embedding  An embedding is a low-dimensional, vector representation of a (typically) high-dimensional feature which maintains the semantic meaning of the feature in a such a way that similar features are close in the embedding space.
+convert each word to weight in  n dimenision where every word has the same weight close to each other 
+( embedding project using tensorflow )  used an categorical data to visuliaze them
+
+
+the ML framework uses an optimizer that is tuned to work well with numbers in the [–1, 1] range, scaling the numeric values to lie in that range can be beneficial to help the gradient desent to find the optimail solution in good way  ( like you divide on  255 or any scalling or normlization   way.
+
+
+
+Another important reason for scaling is that some machine learning algorithms and techniques are very sensitive to the relative magnitudes of the different features. For example, a k-means
+clustering algorithm that uses the Euclidean distance as its proximity measure will end up relying heavily on features with larger magnitudes. Lack of scaling also affects the efficacy of L1 or L2
+regularization since the magnitude of weights for a feature depends on the magnitude of values of that feature, and so different features will be affected differently by regularization. By scaling all features
+to lie between [–1, 1], we ensure that there is not much of a difference in the relative magnitudes of different features.
+
+
+LINEAR SCALING : 
+1- Min-max scaling
+2- Clipping
+3- Scaling to a range
+4- Z-score
+5-  Log Scaling
+6- Winsorizing
+
+
+1- Min-max scaling ( if there is no outlier)
+x1_scaled = (2*x1 - max_x1 - min_x1)/(max_x1 - min_x1)
+The problem with min-max scaling is that the maximum and
+minimum value (max_x1 and min_x1) have to be estimated
+from the training dataset, and they are often outlier values. The
+real data often gets shrunk to a very narrow range in the [–1, 1]
+band.
+
+
+
+2-Clipping ( if there is outliers )
+
+Helps address the problem of outliers by using “reasonable”
+values instead of estimating the minimum and maximum from the
+training dataset. The numeric value is linearly scaled between
+these two reasonable bounds, then clipped to lie in the range [–1,
+1]. This has the effect of treating outliers as –1 or 1
+
+If your data set contains extreme outliers, you might try feature clipping, which caps all feature values above (or below) a certain value to fixed value. For example, you could clip all temperature values above 40 to be exactly 40.
+You may apply feature clipping before or after other normalizations.
+
+
+
+
+
+3- Scaling to a range ( can't dealing with outliers ) 
+x1_scaled = (x1 - min_x1)/(max_x1 - min_x1)
+means converting floating-point feature values from their natural range (for example, 100 to 900) into a standard range—usually 0 and 1 (or sometimes -1 to +1)
+Scaling to a range is a good choice when both of the following conditions are met:
+You know the approximate upper and lower bounds on your data with few or no outliers.
+Your data is approximately uniformly distributed across that range.
+
+
+
+
+4- Z-score ( dealing with outliers without knowing information about data )
+x1_scaled = (x1 - mean_x1)/stddev_x1
+Addresses the problem of outliers without requiring prior
+knowledge of what the reasonable range is by linearly scaling the
+input using the mean and standard deviation estimated over the
+training dataset
+Zscore tends to work best for normally distributed data
+
+
+
+
+5-  Log Scaling ( many points data ) 
+x1_scaled  =  log(x)
+
+Log scaling is helpful when a handful of your values have many points, while most other values have few points. 
+This data distribution is known as the power law distribution. Movie ratings are a good example.
+In the chart below, most movies have very few ratings (the data in the tail), while a few have lots of ratings (the data in the head). 
+Log scaling changes the distribution, helping to improve linear model performance.
+
+
+6-Winsorizing ( dealing with outliers ) 
+from scipy.stats.mstats import winsorize
+
+Winsorizing is a procedure that moderates the influence of outliers on the mean and variance and thereby creates more robust estimators of location and variability.
+Parametric inferential procedures that rely on the mean and variance become more robust when they incorporate Winsorized estimators. 
+Winsorizing is an important tool for educational and social science researchers for two reasons. First, significance tests based on the mean and variance are very common procedures for significance testing in the social sciences. 
+Second, surveys of the educational and psychological literature show that nonnormally distributed data are the rule rather than the exception, and even modest departures from normality disproportionately affect the mean and variance compared with other
+
+Uses the empirical distribution in the training dataset to clip the
+dataset to bounds given by the 10th and 90th percentile of the
+data values (or 5th and 95th percentile, and so forth). The
+winsorized value is min-max scaled.
+
+
+
+
+NONLINEAR TRANSFORMATIONS : 
+uniformly distributed nor distributed like a bell curve? In that case, it is better to apply a nonlinear transform to the input before scaling it
+
+
+One common trick is to take the logarithm of the input value before scaling it. Other common transformations include the sigmoid and polynomial expansions (square, square root, cube, cube root, and so on).
+
+
+
+
+
+
+

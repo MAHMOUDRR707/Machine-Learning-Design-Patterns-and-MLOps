@@ -125,6 +125,19 @@ One common trick is to take the logarithm of the input value before scaling it. 
 
 
 
+It can be difficult to devise a linearizing function that makes the distribution look like a bell curve. 
+
+A principled approach to choosing these buckets is to do histogram equalization
+
+
+Another method to handle skewed distributions is to use a parametric transformation technique like the Box-Cox transform
+
+Box-Cox :chooses its single parameter, lambda, to control the “heteroscedasticity” so that the variance no longer depends on the magnitude
+
+
+
+
+
 
 
 

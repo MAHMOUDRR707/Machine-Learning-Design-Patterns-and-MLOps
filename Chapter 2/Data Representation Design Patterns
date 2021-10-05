@@ -135,6 +135,42 @@ Another method to handle skewed distributions is to use a parametric transformat
 Box-Cox :chooses its single parameter, lambda, to control the “heteroscedasticity” so that the variance no longer depends on the magnitude
 
 
+A Box Cox transformation is a transformation of non-normal dependent variables into a normal shape.
+
+
+Because most modern, large-scale machine learning models (random
+forests, support vector machines, neural networks) operate on
+numerical values, categorical inputs have to be represented as
+numbers.
+
+ why we should use one hot encoder  after ordinal encoder to repsresnt values for each  categorical data in the same row rtather than using numerical 1,2,3  because that might make model
+ confusing and predict depends on orders of numbers
+
+The simplest method of mapping categorical variables while ensuring
+that the variables are independent is one-hot encoding.
+
+Dummy varaible should take care of solving it
+
+
+This is called dummy coding. Because dummy coding is a more compact representation, it is preferred
+in statistical models that perform better when the inputs are linearly independen
+
+
+
+
+
+=====================================================================================================================================================
+
+Design Pattern 1: Hashed Feature
+In machine learning, feature hashing, also known as the hashing trick (by analogy to the kernel trick), is a fast and space-efficient way of vectorizing features, i.e. turning arbitrary features into indices in a vector or matrix.[
+
+
+The Hashed Feature design pattern addresses three possible problems
+associated with categorical features: 
+1- incomplete vocabulary  >>  if there is empty or not compelete value in  colum
+2- model size due to cardinality >>>  if the data has a l ot of categorical value in the same colum which  we will not help to deploy the model on small device
+3- cold start >> there is new values exist after we build the model so it can't predict them 
+
 
 
 
